@@ -1,0 +1,16 @@
+# Visual Studio
+.vs/
+*.vscode/
+*.user
+*.suo
+
+# Build results
+bin/
+obj/
+
+# Angular
+node_modules/
+dist/
+
+# Logs
+*.log
