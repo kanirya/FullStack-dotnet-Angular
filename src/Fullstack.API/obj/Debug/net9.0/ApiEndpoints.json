@@ -1,8 +1,8 @@
 [
   {
-    "ContainingType": "Microsoft.AspNetCore.Routing.IdentityApiEndpointRouteBuilderExtensions\u002B\u003C\u003Ec__1\u00601[[Microsoft.AspNetCore.Identity.IdentityUser, Microsoft.Extensions.Identity.Stores, Version=9.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]",
+    "ContainingType": "Microsoft.AspNetCore.Routing.IdentityApiEndpointRouteBuilderExtensions\u002B\u003C\u003Ec__1\u00601[[Fullstack.API.Models.AppUser, Fullstack.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "\u003CMapIdentityApi\u003Eb__1_3",
-    "RelativePath": "confirmEmail",
+    "RelativePath": "api/confirmEmail",
     "HttpMethod": "GET",
     "IsController": false,
     "Order": 0,
@@ -30,12 +30,12 @@
         "StatusCode": 200
       }
     ],
-    "EndpointName": "MapIdentityApi-/confirmEmail"
+    "EndpointName": "MapIdentityApi-/api/confirmEmail"
   },
   {
-    "ContainingType": "Microsoft.AspNetCore.Routing.IdentityApiEndpointRouteBuilderExtensions\u002B\u003C\u003Ec__DisplayClass1_0\u00601[[Microsoft.AspNetCore.Identity.IdentityUser, Microsoft.Extensions.Identity.Stores, Version=9.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]",
+    "ContainingType": "Microsoft.AspNetCore.Routing.IdentityApiEndpointRouteBuilderExtensions\u002B\u003C\u003Ec__DisplayClass1_0\u00601[[Fullstack.API.Models.AppUser, Fullstack.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "\u003CMapIdentityApi\u003Eb__6",
-    "RelativePath": "forgotPassword",
+    "RelativePath": "api/forgotPassword",
     "HttpMethod": "POST",
     "IsController": false,
     "Order": 0,
@@ -62,19 +62,9 @@
     ]
   },
   {
-    "ContainingType": "Fullstack.API.Controllers.HomeController",
-    "Method": "Index",
-    "RelativePath": "Home",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Microsoft.AspNetCore.Routing.IdentityApiEndpointRouteBuilderExtensions\u002B\u003C\u003Ec__1\u00601[[Microsoft.AspNetCore.Identity.IdentityUser, Microsoft.Extensions.Identity.Stores, Version=9.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]",
+    "ContainingType": "Microsoft.AspNetCore.Routing.IdentityApiEndpointRouteBuilderExtensions\u002B\u003C\u003Ec__1\u00601[[Fullstack.API.Models.AppUser, Fullstack.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "\u003CMapIdentityApi\u003Eb__1_1",
-    "RelativePath": "login",
+    "RelativePath": "api/login",
     "HttpMethod": "POST",
     "IsController": false,
     "Order": 0,
@@ -106,9 +96,9 @@
     ]
   },
   {
-    "ContainingType": "Microsoft.AspNetCore.Routing.IdentityApiEndpointRouteBuilderExtensions\u002B\u003C\u003Ec__1\u00601[[Microsoft.AspNetCore.Identity.IdentityUser, Microsoft.Extensions.Identity.Stores, Version=9.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]",
+    "ContainingType": "Microsoft.AspNetCore.Routing.IdentityApiEndpointRouteBuilderExtensions\u002B\u003C\u003Ec__1\u00601[[Fullstack.API.Models.AppUser, Fullstack.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "\u003CMapIdentityApi\u003Eb__1_8",
-    "RelativePath": "manage/2fa",
+    "RelativePath": "api/manage/2fa",
     "HttpMethod": "POST",
     "IsController": false,
     "Order": 0,
@@ -142,9 +132,9 @@
     ]
   },
   {
-    "ContainingType": "Microsoft.AspNetCore.Routing.IdentityApiEndpointRouteBuilderExtensions\u002B\u003C\u003Ec__1\u00601[[Microsoft.AspNetCore.Identity.IdentityUser, Microsoft.Extensions.Identity.Stores, Version=9.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]",
+    "ContainingType": "Microsoft.AspNetCore.Routing.IdentityApiEndpointRouteBuilderExtensions\u002B\u003C\u003Ec__1\u00601[[Fullstack.API.Models.AppUser, Fullstack.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "\u003CMapIdentityApi\u003Eb__1_9",
-    "RelativePath": "manage/info",
+    "RelativePath": "api/manage/info",
     "HttpMethod": "GET",
     "IsController": false,
     "Order": 0,
@@ -172,9 +162,9 @@
     ]
   },
   {
-    "ContainingType": "Microsoft.AspNetCore.Routing.IdentityApiEndpointRouteBuilderExtensions\u002B\u003C\u003Ec__DisplayClass1_0\u00601[[Microsoft.AspNetCore.Identity.IdentityUser, Microsoft.Extensions.Identity.Stores, Version=9.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]",
+    "ContainingType": "Microsoft.AspNetCore.Routing.IdentityApiEndpointRouteBuilderExtensions\u002B\u003C\u003Ec__DisplayClass1_0\u00601[[Fullstack.API.Models.AppUser, Fullstack.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "\u003CMapIdentityApi\u003Eb__10",
-    "RelativePath": "manage/info",
+    "RelativePath": "api/manage/info",
     "HttpMethod": "POST",
     "IsController": false,
     "Order": 0,
@@ -208,9 +198,9 @@
     ]
   },
   {
-    "ContainingType": "Microsoft.AspNetCore.Routing.IdentityApiEndpointRouteBuilderExtensions\u002B\u003C\u003Ec__DisplayClass1_0\u00601[[Microsoft.AspNetCore.Identity.IdentityUser, Microsoft.Extensions.Identity.Stores, Version=9.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]",
+    "ContainingType": "Microsoft.AspNetCore.Routing.IdentityApiEndpointRouteBuilderExtensions\u002B\u003C\u003Ec__DisplayClass1_0\u00601[[Fullstack.API.Models.AppUser, Fullstack.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "\u003CMapIdentityApi\u003Eb__2",
-    "RelativePath": "refresh",
+    "RelativePath": "api/refresh",
     "HttpMethod": "POST",
     "IsController": false,
     "Order": 0,
@@ -232,9 +222,9 @@
     ]
   },
   {
-    "ContainingType": "Microsoft.AspNetCore.Routing.IdentityApiEndpointRouteBuilderExtensions\u002B\u003C\u003Ec__DisplayClass1_0\u00601[[Microsoft.AspNetCore.Identity.IdentityUser, Microsoft.Extensions.Identity.Stores, Version=9.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]",
+    "ContainingType": "Microsoft.AspNetCore.Routing.IdentityApiEndpointRouteBuilderExtensions\u002B\u003C\u003Ec__DisplayClass1_0\u00601[[Fullstack.API.Models.AppUser, Fullstack.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "\u003CMapIdentityApi\u003Eb__0",
-    "RelativePath": "register",
+    "RelativePath": "api/register",
     "HttpMethod": "POST",
     "IsController": false,
     "Order": 0,
@@ -261,9 +251,9 @@
     ]
   },
   {
-    "ContainingType": "Microsoft.AspNetCore.Routing.IdentityApiEndpointRouteBuilderExtensions\u002B\u003C\u003Ec__DisplayClass1_0\u00601[[Microsoft.AspNetCore.Identity.IdentityUser, Microsoft.Extensions.Identity.Stores, Version=9.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]",
+    "ContainingType": "Microsoft.AspNetCore.Routing.IdentityApiEndpointRouteBuilderExtensions\u002B\u003C\u003Ec__DisplayClass1_0\u00601[[Fullstack.API.Models.AppUser, Fullstack.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "\u003CMapIdentityApi\u003Eb__5",
-    "RelativePath": "resendConfirmationEmail",
+    "RelativePath": "api/resendConfirmationEmail",
     "HttpMethod": "POST",
     "IsController": false,
     "Order": 0,
@@ -283,9 +273,9 @@
     ]
   },
   {
-    "ContainingType": "Microsoft.AspNetCore.Routing.IdentityApiEndpointRouteBuilderExtensions\u002B\u003C\u003Ec__1\u00601[[Microsoft.AspNetCore.Identity.IdentityUser, Microsoft.Extensions.Identity.Stores, Version=9.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]",
+    "ContainingType": "Microsoft.AspNetCore.Routing.IdentityApiEndpointRouteBuilderExtensions\u002B\u003C\u003Ec__1\u00601[[Fullstack.API.Models.AppUser, Fullstack.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "\u003CMapIdentityApi\u003Eb__1_7",
-    "RelativePath": "resetPassword",
+    "RelativePath": "api/resetPassword",
     "HttpMethod": "POST",
     "IsController": false,
     "Order": 0,
@@ -310,5 +300,37 @@
         "StatusCode": 400
       }
     ]
+  },
+  {
+    "ContainingType": "Program\u002B\u003C\u003Ec",
+    "Method": "\u003C\u003CMain\u003E$\u003Eb__0_2",
+    "RelativePath": "api/signup",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userRegistrationModel",
+        "Type": "UserRegistrationModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Fullstack.API.Controllers.HomeController",
+    "Method": "Index",
+    "RelativePath": "Home",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
   }
 ]
