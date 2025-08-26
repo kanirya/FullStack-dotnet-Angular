@@ -67,6 +67,7 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 app.MapControllers();
+app.UseCors("AllowAll");
 app.MapGroup("/api")
     .MapIdentityApi<AppUser>();
 
