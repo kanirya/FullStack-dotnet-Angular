@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Fullstack.Infrastructure\Fullstack.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

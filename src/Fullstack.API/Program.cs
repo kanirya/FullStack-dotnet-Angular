@@ -1,8 +1,13 @@
 using Fullstack.API.Data;
 using Fullstack.API.Models;
+using Fullstack.Application.Services;
+using Fullstack.Domain.Interfaces;
+using Fullstack.Infrastructure.Options;
+using Fullstack.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +24,30 @@ builder.Services.Configure<IdentityOptions>(options =>
     options.User.RequireUniqueEmail=true;
 });
 
+
+// Add CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+});
+
+builder.Services.Configure<TmdbOptions>(
+    builder.Configuration.GetSection("TMDbSettings"));
+
+builder.Services.AddHttpClient<TmdbMovieRepository>();
+builder.Services.AddScoped<IMovieRepository, TmdbMovieRepository>();
+builder.Services.AddScoped<MovieService>();
+
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.PropertyNamingPolicy = null; // keeps original names
+    });
 builder.Services.AddOpenApi();
 
 builder.Services.AddEndpointsApiExplorer();
@@ -59,6 +88,9 @@ app.MapPost("/api/signup",async (
         else
             return Results.BadRequest(result);
     });
+
+
+
 app.Run();
 
 

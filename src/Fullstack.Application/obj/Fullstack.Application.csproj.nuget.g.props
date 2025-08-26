@@ -13,4 +13,7 @@
     <SourceRoot Include="C:\Users\codew\.nuget\packages\" />
     <SourceRoot Include="C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages\" />
   </ItemGroup>
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgWebGrease Condition=" '$(PkgWebGrease)' == '' ">C:\Users\codew\.nuget\packages\webgrease\1.6.0</PkgWebGrease>
+  </PropertyGroup>
 </Project>

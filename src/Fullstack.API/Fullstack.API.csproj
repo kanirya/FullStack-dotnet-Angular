@@ -17,4 +17,10 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Fullstack.Application\Fullstack.Application.csproj" />
+    <ProjectReference Include="..\Fullstack.Domain\Fullstack.Domain.csproj" />
+    <ProjectReference Include="..\Fullstack.Infrastructure\Fullstack.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
