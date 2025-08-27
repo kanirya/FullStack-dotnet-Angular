@@ -183,3 +183,7 @@ C:\.Net\FullStack-dotnet-angular\src\Fullstack.API\bin\Debug\net9.0\Fullstack.In
 C:\.Net\FullStack-dotnet-angular\src\Fullstack.API\bin\Debug\net9.0\Fullstack.Application.pdb
 C:\.Net\FullStack-dotnet-angular\src\Fullstack.API\bin\Debug\net9.0\Fullstack.Domain.pdb
 C:\.Net\FullStack-dotnet-angular\src\Fullstack.API\bin\Debug\net9.0\Fullstack.Infrastructure.pdb
+C:\.Net\FullStack-dotnet-angular\src\Fullstack.API\obj\Debug\net9.0\rpswa.dswa.cache.json
+C:\.Net\FullStack-dotnet-angular\src\Fullstack.API\obj\Debug\net9.0\rjimswa.dswa.cache.json
+C:\.Net\FullStack-dotnet-angular\src\Fullstack.API\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
+C:\.Net\FullStack-dotnet-angular\src\Fullstack.API\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
