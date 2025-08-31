@@ -15,8 +15,14 @@ namespace Fullstack.API.Controllers
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterDto dto)
         {
-            try { var res = await _auth.RegisterAsync(dto, HttpContext.Connection.RemoteIpAddress?.ToString()); return Ok(res); }
-            catch (Exception ex) { return BadRequest(new { error = ex.Message }); }
+            try { 
+                var res = await _auth.RegisterAsync(
+                    dto, HttpContext.Connection.RemoteIpAddress?.ToString());
+                return Ok(res);
+            }
+            catch (Exception ex) {
+                return BadRequest(new { error = ex.Message });
+            }
         }
 
 
@@ -31,8 +37,12 @@ namespace Fullstack.API.Controllers
         [HttpPost("refresh")]
         public async Task<IActionResult> Refresh([FromBody] RefreshRequestDto dto)
         {
-            try { var res = await _auth.RefreshAsync(dto.RefreshToken, HttpContext.Connection.RemoteIpAddress?.ToString()); return Ok(res); }
-            catch (Exception ex) { return Unauthorized(new { error = ex.Message }); }
+            try { 
+                var res = await _auth.RefreshAsync(
+                    dto.RefreshToken, HttpContext.Connection.RemoteIpAddress?.ToString()); return Ok(res); }
+            catch (Exception ex) { 
+                return Unauthorized(new { error = ex.Message });
+            }
         }
 
 

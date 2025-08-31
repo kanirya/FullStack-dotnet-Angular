@@ -88,5 +88,15 @@
     "Order": 0,
     "Parameters": [],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Fullstack.API.Controllers.HomeController",
+    "Method": "SecureEndpoint",
+    "RelativePath": "Home/secure",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
   }
 ]
