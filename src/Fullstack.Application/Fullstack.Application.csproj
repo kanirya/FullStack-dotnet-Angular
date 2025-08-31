@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Fullstack.Infrastructure\Fullstack.Infrastructure.csproj" />
+    <ProjectReference Include="..\Fullstack.Domain\Fullstack.Domain.csproj" />
   </ItemGroup>
 
 </Project>

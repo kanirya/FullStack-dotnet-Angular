@@ -59,13 +59,17 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[9.0.8, )"
+            },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[9.0.8, )"
             },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
-              "version": "[9.0.5, )"
+              "version": "[9.0.8, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
@@ -79,7 +83,11 @@
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[9.0.3, )"
+              "version": "[9.0.4, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[8.14.0, )"
             }
           },
           "imports": [
@@ -132,8 +140,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\.Net\\FullStack-dotnet-angular\\src\\Fullstack.Infrastructure\\Fullstack.Infrastructure.csproj": {
-                "projectPath": "C:\\.Net\\FullStack-dotnet-angular\\src\\Fullstack.Infrastructure\\Fullstack.Infrastructure.csproj"
+              "C:\\.Net\\FullStack-dotnet-angular\\src\\Fullstack.Domain\\Fullstack.Domain.csproj": {
+                "projectPath": "C:\\.Net\\FullStack-dotnet-angular\\src\\Fullstack.Domain\\Fullstack.Domain.csproj"
               }
             }
           }
@@ -264,6 +272,9 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
+              "C:\\.Net\\FullStack-dotnet-angular\\src\\Fullstack.Application\\Fullstack.Application.csproj": {
+                "projectPath": "C:\\.Net\\FullStack-dotnet-angular\\src\\Fullstack.Application\\Fullstack.Application.csproj"
+              },
               "C:\\.Net\\FullStack-dotnet-angular\\src\\Fullstack.Domain\\Fullstack.Domain.csproj": {
                 "projectPath": "C:\\.Net\\FullStack-dotnet-angular\\src\\Fullstack.Domain\\Fullstack.Domain.csproj"
               }
@@ -290,6 +301,14 @@
               "target": "Package",
               "version": "[3.3.0, )"
             },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[9.0.8, )"
+            },
             "Microsoft.Extensions.Configuration.Abstractions": {
               "target": "Package",
               "version": "[9.0.8, )"
@@ -297,6 +316,10 @@
             "Microsoft.Extensions.Options": {
               "target": "Package",
               "version": "[9.0.8, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.35.0, )"
             },
             "WebGrease": {
               "target": "Package",

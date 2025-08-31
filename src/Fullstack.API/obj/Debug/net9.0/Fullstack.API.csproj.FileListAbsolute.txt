@@ -20,7 +20,6 @@ C:\.Net\FullStack-dotnet-angular\src\Fullstack.API\obj\Debug\net9.0\staticwebass
 C:\.Net\FullStack-dotnet-angular\src\Fullstack.API\obj\Debug\net9.0\staticwebassets.build.json.cache
 C:\.Net\FullStack-dotnet-angular\src\Fullstack.API\obj\Debug\net9.0\staticwebassets.development.json
 C:\.Net\FullStack-dotnet-angular\src\Fullstack.API\obj\Debug\net9.0\staticwebassets.build.endpoints.json
-C:\.Net\FullStack-dotnet-angular\src\Fullstack.API\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
 C:\.Net\FullStack-dotnet-angular\src\Fullstack.API\obj\Debug\net9.0\Fullstac.D571A765.Up2Date
 C:\.Net\FullStack-dotnet-angular\src\Fullstack.API\obj\Debug\net9.0\Fullstack.API.dll
 C:\.Net\FullStack-dotnet-angular\src\Fullstack.API\obj\Debug\net9.0\refint\Fullstack.API.dll
@@ -187,3 +186,5 @@ C:\.Net\FullStack-dotnet-angular\src\Fullstack.API\obj\Debug\net9.0\rpswa.dswa.c
 C:\.Net\FullStack-dotnet-angular\src\Fullstack.API\obj\Debug\net9.0\rjimswa.dswa.cache.json
 C:\.Net\FullStack-dotnet-angular\src\Fullstack.API\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
 C:\.Net\FullStack-dotnet-angular\src\Fullstack.API\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
+C:\.Net\FullStack-dotnet-angular\src\Fullstack.API\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\.Net\FullStack-dotnet-angular\src\Fullstack.API\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt

@@ -1,29 +1,65 @@
-using Fullstack.API.Data;
-using Fullstack.API.Models;
+
+using Fullstack.Application.Interfaces;
 using Fullstack.Application.Services;
 using Fullstack.Domain.Interfaces;
+using Fullstack.Infrastructure.Data;
+using Fullstack.Infrastructure.Identity;
 using Fullstack.Infrastructure.Options;
 using Fullstack.Infrastructure.Repositories;
+using Fullstack.Infrastructure.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 
 var builder = WebApplication.CreateBuilder(args);
 
 
-builder.Services.AddIdentityApiEndpoints<AppUser>()
-    .AddEntityFrameworkStores<AppDbContext>();
+
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-builder.Services.Configure<IdentityOptions>(options =>
-{
-    options.Password.RequireDigit=false;
-    options.Password.RequireUppercase=false;
-    options.Password.RequireLowercase=false;
-    options.User.RequireUniqueEmail=true;
-});
 
+// Identity
+
+
+builder.Services.AddIdentity<ApplicationUser, ApplicationRole>()
+    .AddEntityFrameworkStores<AppDbContext>()
+    .AddDefaultTokenProviders();
+
+var jwtSettings = builder.Configuration.GetSection("JwtSettings");
+
+
+
+var secret = jwtSettings["Secret"];
+if (string.IsNullOrEmpty(secret))
+{
+    throw new Exception("JWT Secret is missing from configuration!");
+}
+var key = Encoding.UTF8.GetBytes(secret);
+
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(options =>
+{
+    options.RequireHttpsMetadata = false;
+    options.SaveToken = true;
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = jwtSettings["Issuer"],
+        ValidAudience = jwtSettings["Audience"],
+        IssuerSigningKey = new SymmetricSecurityKey(key)
+    };
+});
 
 // Add CORS
 builder.Services.AddCors(options =>
@@ -39,9 +75,18 @@ builder.Services.AddCors(options =>
 builder.Services.Configure<TmdbOptions>(
     builder.Configuration.GetSection("TMDbSettings"));
 
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
+builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IJwtService, JwtService>();
+builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+
+
 builder.Services.AddHttpClient<TmdbMovieRepository>();
 builder.Services.AddScoped<IMovieRepository, TmdbMovieRepository>();
 builder.Services.AddScoped<MovieService>();
+
 
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
@@ -63,41 +108,19 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+
+
 app.UseHttpsRedirection();
 
+
+app.UseAuthentication();
 app.UseAuthorization();
+
 app.MapControllers();
 app.UseCors("AllowAll");
-app.MapGroup("/api")
-    .MapIdentityApi<AppUser>();
-
-
-app.MapPost("/api/signup",async (
-    UserManager<AppUser> userManager,
-    [FromBody] UserRegistrationModel userRegistrationModel
-    ) => {
-        AppUser user = new AppUser()
-        {
-            Email = userRegistrationModel.Email,
-            FullName = userRegistrationModel.FullName,
-            UserName = userRegistrationModel.Email 
-        };
-        var result=   await    userManager.
-        CreateAsync(user, userRegistrationModel.Password);
-        if (result.Succeeded)
-            return Results.Ok(result);
-        else
-            return Results.BadRequest(result);
-    });
 
 
 
 app.Run();
 
-
-public class UserRegistrationModel
-{
-    public string Email { set; get; }
-    public string Password { set; get; }
-    public string FullName { set; get; }
-}
