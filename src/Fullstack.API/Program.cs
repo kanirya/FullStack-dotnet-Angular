@@ -74,16 +74,21 @@ builder.Services.AddAuthentication(options =>
 });
 
 builder.Services.AddAuthorization();
-// Add CORS
+
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAll", policy =>
-    {
-        policy.AllowAnyOrigin()
-              .AllowAnyMethod()
-              .AllowAnyHeader();
-    });
+    options.AddPolicy("AllowFrontend",
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:5174") // your React dev server
+                  .AllowAnyHeader()
+                  .AllowAnyMethod()
+                  .AllowCredentials();
+        });
 });
+
+// Add CORS
+
 
 builder.Services.Configure<TmdbOptions>(
     builder.Configuration.GetSection("TMDbSettings"));
@@ -195,7 +200,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
-app.UseCors("AllowAll");
+app.UseCors("AllowFrontend");
 
 
 

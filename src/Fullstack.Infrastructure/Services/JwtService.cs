@@ -38,8 +38,6 @@ namespace Fullstack.Infrastructure.Services
                 new Claim(ClaimTypes.Name, user.Name)
                 };
 
-
-
             foreach (var r in roles) claims.Add(new Claim(ClaimTypes.Role, r));
             var now = DateTime.UtcNow;
             var token = new JwtSecurityToken(

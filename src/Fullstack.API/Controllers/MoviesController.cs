@@ -6,7 +6,6 @@ namespace Fullstack.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize]
     public class MoviesController : ControllerBase
     {
         private readonly MovieService _movieService;

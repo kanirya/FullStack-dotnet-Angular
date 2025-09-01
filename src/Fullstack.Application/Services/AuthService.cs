@@ -38,8 +38,8 @@ namespace Fullstack.Application.Services
 
         public async Task<TokenDto> LoginAsync(LoginDto dto, string ip)
         {
-            var user = await _userRepo.FindByEmailAsync(dto.Email) ?? throw new Exception("Invalid credentials");
-            if (!await _userRepo.CheckPasswordAsync(user, dto.Password)) throw new Exception("Invalid credentials");
+            var user = await _userRepo.FindByEmailAsync(dto.Email) ?? throw new Exception("Invalid Email");
+            if (!await _userRepo.CheckPasswordAsync(user, dto.Password)) throw new Exception("Invalid Password");
             var roles = await _userRepo.GetRolesAsync(user);
             var access = _jwt.GenerateAccessToken(user, roles);
             var refresh = _jwt.GenerateRefreshToken(ip);
@@ -48,13 +48,26 @@ namespace Fullstack.Application.Services
             await _refreshRepo.SaveChangesAsync();
             return new TokenDto(access, refresh.Token, DateTime.UtcNow.AddMinutes(_jwt.AccessTokenExpirationMinutes));
         }
+
+
+
         public async Task<TokenDto> RefreshAsync(string refreshToken, string ip)
         {
             var rt = await _refreshRepo.GetByTokenAsync(refreshToken) ?? throw new Exception("Invalid refresh token");
             if (!rt.IsActive) throw new Exception("Invalid refresh token");
-            rt.IsRevoked = true; rt.Revoked = DateTime.UtcNow; rt.RevokedByIp = ip;
-            var newRt = _jwt.GenerateRefreshToken(ip); newRt.UserId = rt.UserId; rt.ReplacedByToken = newRt.Token;
-            await _refreshRepo.AddAsync(newRt); await _refreshRepo.SaveChangesAsync();
+            rt.IsRevoked = true; 
+            rt.Revoked = DateTime.UtcNow;
+            rt.RevokedByIp = ip;
+
+
+            var newRt = _jwt.GenerateRefreshToken(ip);
+            newRt.UserId = rt.UserId;
+            rt.ReplacedByToken = newRt.Token;
+
+
+            await _refreshRepo.AddAsync(newRt); 
+            await _refreshRepo.SaveChangesAsync();
+
             var user = await _userRepo.GetByIdAsync(rt.UserId) ?? throw new Exception("User not found");
             var roles = await _userRepo.GetRolesAsync(user);
             var access = _jwt.GenerateAccessToken(user, roles);
@@ -64,7 +77,9 @@ namespace Fullstack.Application.Services
         {
             var rt = await _refreshRepo.GetByTokenAsync(refreshToken);
             if (rt == null || !rt.IsActive) return;
-            rt.IsRevoked = true; rt.Revoked = DateTime.UtcNow; rt.RevokedByIp = ip;
+            rt.IsRevoked = true;
+            rt.Revoked = DateTime.UtcNow;
+            rt.RevokedByIp = ip;
             await _refreshRepo.SaveChangesAsync();
         }
 

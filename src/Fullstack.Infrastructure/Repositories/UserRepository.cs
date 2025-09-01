@@ -15,13 +15,22 @@ namespace Fullstack.Infrastructure.Repositories
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<ApplicationRole> _roleManager;
         private readonly AppDbContext _db;
-        public UserRepository(UserManager<ApplicationUser> userManager, RoleManager<ApplicationRole> roleManager, AppDbContext db)
+        public UserRepository(UserManager<ApplicationUser> userManager, 
+            RoleManager<ApplicationRole> roleManager,
+            AppDbContext db)
         {
-            _userManager = userManager; _roleManager = roleManager; _db = db;
+            _userManager = userManager;
+            _roleManager = roleManager;
+            _db = db;
         }
         public async Task<(bool Succeeded, string[] Errors)> CreateAsync(User user, string password)
         {
-            var appUser = new ApplicationUser { Id = user.Id, UserName = user.Email, Email = user.Email, Name = user.Name };
+            var appUser = new ApplicationUser {
+                Id = user.Id,
+                UserName = user.Email,
+                Email = user.Email, 
+                Name = user.Name 
+            };
             var res = await _userManager.CreateAsync(appUser, password);
             if (!res.Succeeded) return (false, res.Errors.Select(e => e.Description).ToArray());
             var role = user.Role ?? "User";
