@@ -20,7 +20,7 @@ namespace Fullstack.Application.Services
             _refreshRepo = refreshRepo; 
             _jwt = jwt;
         }
-        public async Task<TokenDto> RegisterAsync(RegisterDto dto, string ip)
+        public async Task<ReturnDataDto> RegisterAsync(RegisterDto dto, string ip)
         {
             var role = string.IsNullOrWhiteSpace(dto.Role) ? "User" : dto.Role;
             await _userRepo.EnsureRoleExistsAsync(role);
@@ -33,10 +33,11 @@ namespace Fullstack.Application.Services
             refresh.UserId = domainUser.Id;
             await _refreshRepo.AddAsync(refresh);
             await _refreshRepo.SaveChangesAsync();
-            return new TokenDto(access, refresh.Token, DateTime.UtcNow.AddMinutes(_jwt.AccessTokenExpirationMinutes));
+            var userData = new UserDto(domainUser.Name, domainUser.Id, domainUser.Email, domainUser.Role, DateTime.UtcNow);
+            return new ReturnDataDto(access, refresh.Token, DateTime.UtcNow.AddMinutes(_jwt.AccessTokenExpirationMinutes),userData);
         }
 
-        public async Task<TokenDto> LoginAsync(LoginDto dto, string ip)
+        public async Task<ReturnDataDto> LoginAsync(LoginDto dto, string ip)
         {
             var user = await _userRepo.FindByEmailAsync(dto.Email) ?? throw new Exception("Invalid Email");
             if (!await _userRepo.CheckPasswordAsync(user, dto.Password)) throw new Exception("Invalid Password");
@@ -46,7 +47,8 @@ namespace Fullstack.Application.Services
             refresh.UserId = user.Id;
             await _refreshRepo.AddAsync(refresh);
             await _refreshRepo.SaveChangesAsync();
-            return new TokenDto(access, refresh.Token, DateTime.UtcNow.AddMinutes(_jwt.AccessTokenExpirationMinutes));
+            var userData = new UserDto(user.Name,user.Id, user.Email, user.Role,DateTime.UtcNow);
+            return new ReturnDataDto(access, refresh.Token, DateTime.UtcNow.AddMinutes(_jwt.AccessTokenExpirationMinutes),userData );
         }
 
 
@@ -71,6 +73,7 @@ namespace Fullstack.Application.Services
             var user = await _userRepo.GetByIdAsync(rt.UserId) ?? throw new Exception("User not found");
             var roles = await _userRepo.GetRolesAsync(user);
             var access = _jwt.GenerateAccessToken(user, roles);
+          
             return new TokenDto(access, newRt.Token, DateTime.UtcNow.AddMinutes(_jwt.AccessTokenExpirationMinutes));
         }
         public async Task RevokeAsync(string refreshToken, string ip)

@@ -9,8 +9,8 @@ namespace Fullstack.Application.Interfaces
 {
     public interface IAuthService
     {
-        Task<TokenDto> RegisterAsync(RegisterDto dto, string ip);
-        Task<TokenDto> LoginAsync(LoginDto dto, string ip);
+        Task<ReturnDataDto> RegisterAsync(RegisterDto dto, string ip);
+        Task<ReturnDataDto> LoginAsync(LoginDto dto, string ip);
         Task<TokenDto> RefreshAsync(string refreshToken, string ip);
         Task RevokeAsync(string refreshToken, string ip);
     }
