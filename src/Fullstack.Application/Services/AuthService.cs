@@ -24,7 +24,9 @@ namespace Fullstack.Application.Services
         {
             var role = string.IsNullOrWhiteSpace(dto.Role) ? "User" : dto.Role;
             await _userRepo.EnsureRoleExistsAsync(role);
+
             var domainUser = new User(Guid.NewGuid(), dto.Name, dto.Email, role);
+
             var (succeeded, errors) = await _userRepo.CreateAsync(domainUser, dto.Password);
             if (!succeeded) throw new Exception(string.Join(';', errors));
             var roles = await _userRepo.GetRolesAsync(domainUser);
@@ -32,23 +34,44 @@ namespace Fullstack.Application.Services
             var refresh = _jwt.GenerateRefreshToken(ip);
             refresh.UserId = domainUser.Id;
             await _refreshRepo.AddAsync(refresh);
+
             await _refreshRepo.SaveChangesAsync();
-            var userData = new UserDto(domainUser.Name, domainUser.Id, domainUser.Email, domainUser.Role, DateTime.UtcNow);
+
+
+
+            var userData = new UserDto(
+                domainUser.Name,
+                domainUser.Id,
+                domainUser.Email,
+                domainUser.Role,
+                DateTime.UtcNow
+                );
             return new ReturnDataDto(access, refresh.Token, DateTime.UtcNow.AddMinutes(_jwt.AccessTokenExpirationMinutes),userData);
         }
 
         public async Task<ReturnDataDto> LoginAsync(LoginDto dto, string ip)
         {
-            var user = await _userRepo.FindByEmailAsync(dto.Email) ?? throw new Exception("Invalid Email");
-            if (!await _userRepo.CheckPasswordAsync(user, dto.Password)) throw new Exception("Invalid Password");
+            var user = await _userRepo.FindByEmailAsync(dto.Email)
+                ?? throw new Exception("Invalid Email");
+            if (!await _userRepo.CheckPasswordAsync(user, dto.Password)) 
+                throw new Exception("Invalid Password");
             var roles = await _userRepo.GetRolesAsync(user);
+
             var access = _jwt.GenerateAccessToken(user, roles);
             var refresh = _jwt.GenerateRefreshToken(ip);
             refresh.UserId = user.Id;
             await _refreshRepo.AddAsync(refresh);
             await _refreshRepo.SaveChangesAsync();
-            var userData = new UserDto(user.Name,user.Id, user.Email, user.Role,DateTime.UtcNow);
-            return new ReturnDataDto(access, refresh.Token, DateTime.UtcNow.AddMinutes(_jwt.AccessTokenExpirationMinutes),userData );
+            var userData = new UserDto(
+                user.Name,
+                user.Id,
+                user.Email,
+                user.Role,
+                DateTime.UtcNow);
+            return new ReturnDataDto(access, 
+                refresh.Token, 
+                DateTime.UtcNow.AddMinutes(_jwt.AccessTokenExpirationMinutes),
+                userData );
         }
 
 

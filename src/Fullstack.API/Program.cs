@@ -34,7 +34,6 @@ builder.Services.AddIdentity<ApplicationUser, ApplicationRole>()
 
 var jwtSettings = builder.Configuration.GetSection("Jwt");
 var key = jwtSettings.GetValue<string>("Secret");
-Console.WriteLine("KEY is "+key);
 
 if (string.IsNullOrEmpty(key))
     throw new Exception("JWT Secret is missing in appsettings.json");
@@ -80,7 +79,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowFrontend",
         policy =>
         {
-            policy.WithOrigins("http://localhost:5174") // your React dev server
+            policy.WithOrigins("http://localhost:5173") // your React dev server
                   .AllowAnyHeader()
                   .AllowAnyMethod()
                   .AllowCredentials();
@@ -123,7 +122,7 @@ builder.Services.AddSwaggerGen(c =>
         Contact = new OpenApiContact
         {
             Name = "API Support",
-            Email = "support@example.com"
+            Email = "codewithartist1@gmail.com"
         }
     });
     
