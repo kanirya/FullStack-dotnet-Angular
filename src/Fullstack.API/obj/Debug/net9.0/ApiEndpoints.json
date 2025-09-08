@@ -80,6 +80,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Fullstack.API.Controllers.ProfileController",
+    "Method": "GetUserData",
+    "RelativePath": "api/Profile/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Fullstack.API.Controllers.HomeController",
     "Method": "Index",
     "RelativePath": "Home",

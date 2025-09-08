@@ -62,8 +62,7 @@ namespace Fullstack.Application.Services
             refresh.UserId = user.Id;
             await _refreshRepo.AddAsync(refresh);
             await _refreshRepo.SaveChangesAsync();
-            var userData = new UserDto(
-                user.Name,
+            var userData = new UserDto(user.Name,
                 user.Id,
                 user.Email,
                 user.Role,
@@ -83,12 +82,9 @@ namespace Fullstack.Application.Services
             rt.IsRevoked = true; 
             rt.Revoked = DateTime.UtcNow;
             rt.RevokedByIp = ip;
-
-
             var newRt = _jwt.GenerateRefreshToken(ip);
             newRt.UserId = rt.UserId;
             rt.ReplacedByToken = newRt.Token;
-
 
             await _refreshRepo.AddAsync(newRt); 
             await _refreshRepo.SaveChangesAsync();

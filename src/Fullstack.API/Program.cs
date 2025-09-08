@@ -61,12 +61,12 @@ builder.Services.AddAuthentication(options =>
     {
         OnAuthenticationFailed = context =>
         {
-            Console.WriteLine("JWT Authentication failed: " + context.Exception.Message);
+           
             return Task.CompletedTask;
         },
         OnTokenValidated = context =>
         {
-            Console.WriteLine("JWT Token validated successfully");
+           
             return Task.CompletedTask;
         }
     };
@@ -79,14 +79,14 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowFrontend",
         policy =>
         {
-            policy.WithOrigins("http://localhost:5173") // your React dev server
+            policy.WithOrigins("http://localhost:5176") // your React dev server
                   .AllowAnyHeader()
                   .AllowAnyMethod()
                   .AllowCredentials();
         });
 });
 
-// Add CORS
+
 
 
 builder.Services.Configure<TmdbOptions>(
@@ -104,6 +104,8 @@ builder.Services.AddScoped<IJwtService, JwtService>();
 builder.Services.AddHttpClient<TmdbMovieRepository>();
 builder.Services.AddScoped<IMovieRepository, TmdbMovieRepository>();
 builder.Services.AddScoped<MovieService>();
+builder.Services.AddScoped<IUserDataRepository, UserDataRepository>();
+builder.Services.AddHttpContextAccessor();
 
 
 builder.Services.AddControllers()

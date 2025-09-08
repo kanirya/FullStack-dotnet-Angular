@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "WwzrVlWWaAA=",
+  "dgSpecHash": "zYwfxdRrX8g=",
   "success": true,
   "projectFilePath": "C:\\.Net\\FullStack-dotnet-angular\\src\\Fullstack.Infrastructure\\Fullstack.Infrastructure.csproj",
   "expectedPackageFiles": [
@@ -11,6 +11,8 @@
     "C:\\Users\\codew\\.nuget\\packages\\microsoft.aspnet.webpages\\3.3.0\\microsoft.aspnet.webpages.3.3.0.nupkg.sha512",
     "C:\\Users\\codew\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\9.0.8\\microsoft.aspnetcore.cryptography.internal.9.0.8.nupkg.sha512",
     "C:\\Users\\codew\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\9.0.8\\microsoft.aspnetcore.cryptography.keyderivation.9.0.8.nupkg.sha512",
+    "C:\\Users\\codew\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.3.0\\microsoft.aspnetcore.http.abstractions.2.3.0.nupkg.sha512",
+    "C:\\Users\\codew\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.3.0\\microsoft.aspnetcore.http.features.2.3.0.nupkg.sha512",
     "C:\\Users\\codew\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\9.0.8\\microsoft.aspnetcore.identity.entityframeworkcore.9.0.8.nupkg.sha512",
     "C:\\Users\\codew\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\codew\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
@@ -65,7 +67,7 @@
     "C:\\Users\\codew\\.nuget\\packages\\system.security.principal.windows\\5.0.0\\system.security.principal.windows.5.0.0.nupkg.sha512",
     "C:\\Users\\codew\\.nuget\\packages\\system.text.encoding\\4.3.0\\system.text.encoding.4.3.0.nupkg.sha512",
     "C:\\Users\\codew\\.nuget\\packages\\system.text.encoding.codepages\\6.0.0\\system.text.encoding.codepages.6.0.0.nupkg.sha512",
-    "C:\\Users\\codew\\.nuget\\packages\\system.text.encodings.web\\6.0.0\\system.text.encodings.web.6.0.0.nupkg.sha512",
+    "C:\\Users\\codew\\.nuget\\packages\\system.text.encodings.web\\8.0.0\\system.text.encodings.web.8.0.0.nupkg.sha512",
     "C:\\Users\\codew\\.nuget\\packages\\system.text.json\\9.0.8\\system.text.json.9.0.8.nupkg.sha512",
     "C:\\Users\\codew\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "C:\\Users\\codew\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512",
